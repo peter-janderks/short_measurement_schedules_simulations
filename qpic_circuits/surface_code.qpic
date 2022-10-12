@@ -1,0 +1,245 @@
+PREAMBLE \providecommand{\ket}[1]{\left|#1\right\rangle}
+DEFINE Id G $p_I$ color=green
+DEFINE Sp G $p_S$ color=orange
+DEFINE P2 G $p_2$ color=purple style=densely_dotted
+DEFINE P1 G $p_1$ color=red
+DEFINE PM G $p_m$ color=blue
+CUT
+
+
+AX1 W A_{X1}\ket{0}
+AX2 W A_{X2}\ket{0} #(2,3)
+AX3 W A_{X3}\ket{0} #(2,1)
+AX4 W A_{X4}\ket{0} #(4,3)
+
+D1 W D_1
+D2 W D_2
+D3 W D_3 
+D4 W D_4 
+D5 W D_5
+D6 W D_6
+D7 W D_7
+D8 W D_8
+D9 W D_9
+
+AZ1 W A_{Z1}\ket{0} #(1,4)
+AZ2 W A_{Z2}\ket{0} #(1,2)
+AZ3 W A_{Z3}\ket{0} #(3,2)
+AZ4 W A_{Z4}\ket{0} #(3,0)
+
+
+#AX1 W A_{X1}\ket{0}
+#D1 W D_1
+#D2 W D_2
+#AZ2 W A_{Z2}\ket{0} #(1,2)
+#D3 W D_3 
+#AZ1 W A_{Z1}\ket{0} #(1,4)
+#D4 W D_4 
+#AX3 W A_{X3}\ket{0} #(2,1)
+#D5 W D_5
+#AX2 W A_{X2}\ket{0} #(2,3)
+#D6 W D_6
+#AZ4 W A_{Z4}\ket{0} #(3,0)
+#D7 W D_7
+#AZ3 W A_{Z3}\ket{0} #(3,2)
+#D8 W D_8
+#D9 W D_9
+#AX4 W A_{X4}\ket{0} #(4,3)
+
+
+LB
+AX1 Sp
+D1 Id
+D2 Id
+AZ2 Sp
+D3 Id
+AZ1 Sp
+D4 Id
+AX3 Sp
+D5 Id
+AX2 Sp
+D6 Id
+AZ4 Sp
+D7 Id
+AZ3 Sp
+D8 Id
+D9 Id
+AX4 Sp
+LE
+
+LB
+AX1 H
+AX2 H
+AX3 H
+AX4 H
+LE
+
+LB
+D1 Id
+D2 Id
+D3 Id
+AZ1 Id
+D4 Id
+D5 Id
+D6 Id
+D7 Id
+D8 Id
+D9 Id
+AZ2 Id
+AZ3 Id
+AZ4 Id
+AX1 P1
+AX2 P1
+AX3 P1 
+AX4 P1
+LE
+
+LB
+AZ1 C D3
+AZ2 C D5
+AZ3 C D9
+D4 C AX1
+D6 C AX2
+D8 C AX3
+LE
+
+LB
+D3 P2 AZ1 P2
+D5 P2 AZ2 P2
+D9 P2 AZ3 P2
+D4 P2 AX1 P2
+D6 P2 AX2 P2
+D8 P2 AX3 P2
+D1 Id
+D2 Id
+D7 Id
+AZ4 Id
+AX4 Id
+LE
+
+LB
+AZ1 C D2
+D3 C AX2
+D1 C AX1
+AZ2 C D4
+D5 C AX3
+AZ3 C D8
+LE
+
+LB
+AZ1 P2 D2 P2
+D3 P2 AX2 P2
+D1 P2 AX1 P2
+AZ2 P2 D4 P2
+D5 P2 AX3 P2
+AZ3 P2 D8 P2
+D6 Id
+D7 Id
+D9 Id 
+AX4 Id
+AZ4 Id
+LE
+
+LB
+AZ2 C D2
+AZ3 C D6
+AZ4 C D8
+D5 C AX2 
+D7 C AX3 
+D9 C AX4
+LE
+
+LB
+AZ2 P2 D2 P2
+AZ3 P2 D6 P2
+AZ4 P2 D8 P2
+AX2 P2 D5 P2
+AX3 P2 D7 P2 
+AX4 P2 D9 P2
+D1 Id
+D3 Id
+D4 Id
+AX1 Id
+AZ1 Id
+LE
+
+LB
+AZ2 C D1
+AZ3 C D5
+AZ4 C D7
+D4 C AX3
+D2 C AX2
+D6 C AX4
+LE
+
+LB
+AZ2 P2 D1 P2
+AZ3 P2 D5 P2
+AZ4 P2 D7 P2
+D4 P2 AX3 P2
+D2 P2 AX2 P2
+D6 P2 AX4 P2
+D3 Id
+D8 Id
+D9 Id
+AZ1 Id
+AX1 Id
+LE
+
+LB
+AX4 H
+AX3 H
+AX2 H
+AX1 H
+LE
+
+LB
+D1 Id
+D2 Id
+D3 Id
+AZ1 Id
+D4 Id
+D5 Id
+D6 Id
+D7 Id
+D8 Id
+D9 Id
+AZ2 Id
+AZ3 Id
+AZ4 Id
+AX1 P1
+AX2 P1
+AX3 P1
+AX4 P1
+LE
+
+LB
+D1 Id
+D2 Id
+D3 Id
+AZ1 PM
+D4 Id
+D5 Id
+D6 Id
+D7 Id
+D8 Id
+D9 Id
+AZ2 PM
+AZ3 PM
+AZ4 PM
+AX1 PM
+AX2 PM
+AX3 PM
+AX4 PM
+LE
+
+LB
+AZ1 M
+AZ2 M
+AZ3 M
+AZ4 M
+AX1 M 
+AX2 M
+AX3 M
+AX4 M
+LE
