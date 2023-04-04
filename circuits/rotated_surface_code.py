@@ -86,43 +86,6 @@ class RotatedSurfaceCode(object):
         self.measure_ancilla_qubits(1, all_qubits)
         self.measure_data_qubits(1, all_qubits)
 
-    def create_first_half(self):
-        (
-            self.data_qubits,
-            self.builder.H1_X_face_ancilla,
-            self.builder.H1_Z_face_ancilla,
-            self.builder.H1_X_boundary_ancilla,
-            self.builder.H1_Z_boundary_ancilla,
-        ) = self.create_t0()
-        self.all_qubits_H1 = (
-            set(self.data_qubits.values())
-            | set(self.builder.H1_X_face_ancilla.values())
-            | set(self.builder.H1_Z_face_ancilla.values())
-            | set(self.builder.H1_X_boundary_ancilla.values())
-            | set(self.builder.H1_Z_boundary_ancilla.values())
-        )
-
-        self.ancilla_qubits_H1 = (
-            set(self.builder.H1_X_face_ancilla.values())
-            | set(self.builder.H1_Z_face_ancilla.values())
-            | set(self.builder.H1_X_boundary_ancilla.values())
-            | set(self.builder.H1_Z_boundary_ancilla.values())
-        )
-        self.builder.ancilla_qubits_ind_to_coord.update(
-            {ind: coord for coord, ind in self.builder.H1_X_face_ancilla.items()})
-        self.builder.ancilla_qubits_ind_to_coord.update(
-            {ind: coord for coord, ind in self.builder.H1_Z_face_ancilla.items()})
-        self.builder.ancilla_qubits_ind_to_coord.update(
-            {ind: coord for coord, ind in self.builder.H1_X_boundary_ancilla.items()})
-        self.builder.ancilla_qubits_ind_to_coord.update(
-            {ind: coord for coord, ind in self.builder.H1_Z_boundary_ancilla.items()})
-        self.builder.build_layer(self.H1_0, self.all_qubits_H1)
-        self.builder.build_layer(self.H1_1, self.all_qubits_H1)
-        self.builder.build_layer(self.H1_2, self.all_qubits_H1)
-        self.builder.build_layer(self.H1_3, self.all_qubits_H1)
-        self.builder.build_layer(self.H1_4, self.all_qubits_H1)
-        self.builder.build_layer(self.H1_5, self.all_qubits_H1)
-
     def build_five_layers(self, all_qubits):
         self.builder.build_layer(self.l0, all_qubits)
         self.builder.build_layer(self.l1, all_qubits)
