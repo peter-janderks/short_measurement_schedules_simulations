@@ -3,7 +3,7 @@ from circuits.circuit_builder import CircuitBuilder
 
 
 class DoubleMeasurementSurfaceCodeMock(DoubleMeasurementSurfaceCode):
-    def __init__(self, distance, p_idling=0, p_1=0, p_2=0, p_m=0, p_prep=0):
+    def __init__(self, diameter, rounds, distance, p_idling=0, p_1=0, p_2=0, p_m=0, p_prep=0):
         self.builder = CircuitBuilder(p_idling, p_1, p_2, p_m, p_prep)
         self.distance = distance
         self.circ = self.builder.circ
@@ -14,7 +14,8 @@ def test_create_t0():
     (data_qubits, X_face_ancilla, X_face_flags, Z_face_ancilla, Z_face_flags, X_left_boundary_ancilla, X_left_boundary_flags,
      X_right_boundary_ancilla, X_right_boundary_flags, Z_top_boundary_ancilla, Z_top_boundary_flags, Z_bottom_boundary_ancilla, Z_bottom_boundary_flags) = d3rsc.create_t0()
 
-    assert data_qubits == {(0, 2): 0, (1, 1): 1, (2, 0): 2, (1, 3): 3, (2, 2)                           : 4, (3, 1): 5, (2, 4): 6, (3, 3): 7, (4, 2): 8}
+    assert data_qubits == {(0, 2): 0, (1, 1): 1, (2, 0): 2, (1, 3): 3, (2, 2)
+                            : 4, (3, 1): 5, (2, 4): 6, (3, 3): 7, (4, 2): 8}
     assert X_face_ancilla == {(2, 1): 9, (2, 3): 11}
     assert X_face_flags == {(2.5, 0.5): 10, (2.5, 2.5): 12}
     assert Z_face_ancilla == {(1, 2): 13, (3, 2): 15}
@@ -36,11 +37,11 @@ def test_create_t0():
 
 
 def test_build_d3_circ():
-    d3rsc = DoubleMeasurementSurfaceCode(3, 0.1, 0.12, 0.13, 0.14, 0.15)
+    d3rsc = DoubleMeasurementSurfaceCode(3, 0.1, 0, 0.12, 0.13, 0.14, 0.15)
     assert d3rsc.builder.circ.num_detectors == 48
     print(d3rsc.builder.circ)
     print(d3rsc.builder.circ.detector_error_model(approximate_disjoint_errors=True, decompose_errors=True))
-    d5doublesurfacecode = DoubleMeasurementSurfaceCode(5, 0.1, 0.12, 0.13, 0.14, 0.15)
+    d5doublesurfacecode = DoubleMeasurementSurfaceCode(5, 0, 0.1, 0.12, 0.13, 0.14, 0.15)
     assert d5doublesurfacecode.builder.circ.num_detectors == 240
 
     # print(d3rsc.builder.circ.detector_error_model(approximate_disjoint_errors=True, decompose_errors=True))

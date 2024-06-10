@@ -597,30 +597,3 @@ class DoubleMeasurementSurfaceCode(object):
         self.builder.circ.append("R", bottom_boundary_flags.values())
         return (top_boundary_ancilla_qubits, top_boundary_flags, bottom_boundary_ancilla_qubits, bottom_boundary_flags, index)
 
-
-if __name__ == "__main__":
-    """
-    surface_code_circuit = stim.Circuit.generated(
-    "surface_code:rotated_memory_z",
-    rounds=9,
-    distance=3,
-    after_clifford_depolarization=0.001,
-    after_reset_flip_probability=0.001,
-    before_measure_flip_probability=0.001,
-    before_round_data_depolarization=0.001)
-    """
-
-    shortsurfacecode = ShortSurfaceCode(3, 3, 0.1, 0.1, 0.1, 0.1, 0.1)
-    print(shortsurfacecode.circ)
-    """
-    print(
-        stimcirq.stim_circuit_to_cirq_circuit(shortsurfacecode.circ[50:]),
-        file=open("circ.txt", "w"),
-    )
-    print(
-        stimcirq.stim_circuit_to_cirq_circuit(shortsurfacecode.circ),
-        file=open("full_circ.txt", "w"),
-    )
-    """
-#    print(shortsurfacecode.circ)
-#    print(len(shortsurfacecode.circ.shortest_graphlike_error()))

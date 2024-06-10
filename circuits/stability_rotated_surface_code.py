@@ -135,7 +135,6 @@ class StabilityRotatedSurfaceCode(object):
 
     def measure_ancilla_qubits(self, z_cor, all_qubits):
         self.builder.idling_qubits = all_qubits.copy()
-
         qubits_to_measure_deterministic = list(self.ancilla_qubits)
         self.builder.M(qubits_to_measure_deterministic)
         self.build_ancilla_detector(qubits_to_measure_deterministic, z_cor)
