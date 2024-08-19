@@ -1,0 +1,11 @@
+#!/bin/bash 
+
+set -e 
+
+python ./gen_data/run_memory_double_measurement_surface_code.py \
+
+python ./gen_data/run_memory_rotated_surface_code.py 
+
+python ./gen_data/run_stability_double_measurement_surface_code.py
+
+python ./gen_data/run_stability_rotated_surface_code.py
